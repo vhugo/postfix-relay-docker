@@ -1,6 +1,8 @@
 Postfix Mail Relay
 ======================
 
+*This is a copy of [alterrebe/postfix-relay](https://hub.docker.com/r/alterrebe/postfix-relay/) with the option to rewrite recipients, pointing any recipient to a single e-mail address (useful for development and test of web applications).*
+
 Contains:
 
 * Postfix, running in a simple relay mode

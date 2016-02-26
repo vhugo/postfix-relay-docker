@@ -14,7 +14,6 @@ export ACCEPTED_NETWORKS=${ACCEPTED_NETWORKS:-"192.168.0.0/16 172.16.0.0/12 10.0
 export USE_TLS=${USE_TLS:-"no"}
 export TLS_VERIFY=${TLS_VERIFY:-"may"}
 export DEFAULT_RECIPIENT=${DEFAULT_RECIPIENT:-""}
-export DEFAULT_RECIPIENT=${DEFAULT_RECIPIENT:-""}
 
 echo $RELAY_HOST_NAME > /etc/mailname
 
@@ -26,7 +25,7 @@ postmap /etc/postfix/sasl_passwd
 if [ $DEFAULT_RECIPIENT != "" ]; then
   j2 /root/conf/recipient_canonical > /etc/postfix/recipient_canonical
   postmap /etc/postfix/recipient_canonical
-  echo "\nrecipient_canonical_maps = regexp:/etc/postfix/recipient_canonical" >> /etc/postfix/main.cf
+  echo -e "\nrecipient_canonical_maps = regexp:/etc/postfix/recipient_canonical" >> /etc/postfix/main.cf
 fi
 
 # Launch
